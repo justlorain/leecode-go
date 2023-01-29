@@ -25,6 +25,21 @@ func postorderTraversalWithRecursion(root *TreeNode) []int {
 	return res
 }
 
+func postorderTraversalWithRecursion2(root *TreeNode) []int {
+	var postorder func(node *TreeNode) []int
+	postorder = func(node *TreeNode) []int {
+		var res []int
+		if node == nil {
+			return res
+		}
+		res = append(res, postorder(node.Left)...)
+		res = append(res, postorder(node.Right)...)
+		res = append(res, node.Val)
+		return res
+	}
+	return postorder(root)
+}
+
 // TODO: Review
 func postorderTraversalWithIteration(root *TreeNode) (res []int) {
 	var stack []*TreeNode

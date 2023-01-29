@@ -80,9 +80,10 @@ func sortArrayWithMergeSort(nums []int) []int {
 			k++
 			j++
 		}
-		for idx := 0; idx < right-left+1; idx++ {
-			nums[idx+left] = temp[idx]
-		}
+		copy(nums[left:right+1], temp)
+		//for idx := 0; idx < right-left+1; idx++ {
+		//	nums[idx+left] = temp[idx]
+		//}
 	}
 	mergeSort(nums, 0, len(nums)-1)
 	return nums

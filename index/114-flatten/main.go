@@ -15,12 +15,12 @@ func flattenWithRecursion(root *TreeNode) {
 		return
 	}
 	var preorder func(root *TreeNode) []*TreeNode
-	preorder = func(root *TreeNode) []*TreeNode {
+	preorder = func(node *TreeNode) []*TreeNode {
 		var list []*TreeNode
-		if root != nil {
-			list = append(list, root)
-			list = append(list, preorder(root.Left)...)
-			list = append(list, preorder(root.Right)...)
+		if node != nil {
+			list = append(list, node)
+			list = append(list, preorder(node.Left)...)
+			list = append(list, preorder(node.Right)...)
 		}
 		return list
 	}
