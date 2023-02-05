@@ -41,3 +41,29 @@ func levelOrderWithBFS(root *TreeNode) [][]int {
 	}
 	return res
 }
+
+func levelOrderWithBFSReview(root *TreeNode) [][]int {
+	var res [][]int
+	if root == nil {
+		return res
+	}
+	queue := []*TreeNode{root}
+	idx := 0
+	for len(queue) > 0 {
+		res = append(res, []int{})
+		var temp []*TreeNode
+		for i := 0; i < len(queue); i++ {
+			node := queue[i]
+			res[idx] = append(res[idx], node.Val)
+			if node.Left != nil {
+				temp = append(temp, node.Left)
+			}
+			if node.Right != nil {
+				temp = append(temp, node.Right)
+			}
+		}
+		queue = temp
+		idx++
+	}
+	return res
+}
