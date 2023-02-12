@@ -29,3 +29,14 @@ func twoSumWithHash(nums []int, target int) []int {
 	}
 	return nil
 }
+
+func twoSumWithHash2(nums []int, target int) []int {
+	hash := make(map[int]int)
+	for i, num := range nums {
+		if v, ok := hash[target-num]; ok {
+			return []int{v, i}
+		}
+		hash[num] = i
+	}
+	return nil
+}
