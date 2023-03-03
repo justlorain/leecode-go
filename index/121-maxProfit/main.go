@@ -11,11 +11,12 @@ func main() {
 func maxProfit(prices []int) int {
 	minPrice := math.MaxInt64
 	maxProfit := 0
-	for i := range prices {
-		if prices[i] < minPrice {
-			minPrice = prices[i]
-		} else if prices[i]-minPrice > maxProfit {
-			maxProfit = prices[i] - minPrice
+	// 一次遍历：寻找股票最低点，然后计算当天利润
+	for _, v := range prices {
+		if v < minPrice {
+			minPrice = v
+		} else if v-minPrice > maxProfit {
+			maxProfit = v - minPrice
 		}
 	}
 	return maxProfit

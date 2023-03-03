@@ -85,6 +85,7 @@ func (this *LRUCache) moveToHead(node *DListNode) {
 	this.addToHead(node)
 }
 
+// 返回的是被移除的节点
 func (this *LRUCache) removeTail() *DListNode {
 	node := this.tail.prev
 	this.removeNode(node)

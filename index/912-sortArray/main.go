@@ -90,11 +90,11 @@ func sortArrayWithMergeSort(nums []int) []int {
 }
 
 // prefer this one
-func sortArrayWithMergeSort2(nums []int, left, right int) {
+func mergeSort(nums []int, left, right int) {
 	if left < right {
 		mid := (left + right) / 2
-		sortArrayWithMergeSort2(nums, left, mid)
-		sortArrayWithMergeSort2(nums, mid+1, right)
+		mergeSort(nums, left, mid)
+		mergeSort(nums, mid+1, right)
 		merge(nums, left, mid, right)
 	}
 }

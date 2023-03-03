@@ -31,13 +31,16 @@ func isValid(s string) bool {
 	}
 	var stack []byte
 	for i := 0; i < n; i++ {
-		if _, ok := pairs[s[i]]; ok {
+		// 是右括号
+		if v, ok := pairs[s[i]]; ok {
 			//  栈为空 || 括号不匹配
-			if len(stack) == 0 || stack[len(stack)-1] != pairs[s[i]] {
+			if len(stack) == 0 || stack[len(stack)-1] != v {
 				return false
 			}
+			// 弾栈
 			stack = stack[:len(stack)-1]
 		} else {
+			// 左括号直接入栈
 			stack = append(stack, s[i])
 		}
 	}
