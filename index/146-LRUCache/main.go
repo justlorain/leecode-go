@@ -7,8 +7,6 @@ package main
  * obj.Put(key,value);
  */
 
-// TODO: review needed
-
 type LRUCache struct {
 	size     int
 	capacity int

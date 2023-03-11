@@ -3,20 +3,10 @@ package main
 import "fmt"
 
 func main() {
-	//for _, v := range s {
-	//	fmt.Println(v)
-	//	fmt.Printf("%T", v) // int32
-	//}
-	s := "()"
-	pairs := map[byte]byte{
-		'(': '(',
-		']': '[',
-		'}': '{',
+	s := "hello world"
+	for _, v := range s {
+		fmt.Println(v)
 	}
-	fmt.Println(pairs[s[0]])
-
-	//fmt.Println(s[1])  // 101
-	//fmt.Println(s[1:]) // ello
 }
 
 func isValid(s string) bool {
