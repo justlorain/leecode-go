@@ -118,32 +118,3 @@ func merge(nums []int, left, mid, right int) {
 	}
 	copy(nums[left:right+1], tmp)
 }
-
-func sortArrayWithMergeSort3(nums []int, left, right int) {
-	if left < right {
-		mid := (left + right) / 2
-		sortArrayWithMergeSort3(nums, left, mid)
-		sortArrayWithMergeSort3(nums, mid+1, right)
-		merge(nums, left, mid, right)
-	}
-}
-
-func merge3(nums []int, left, mid, right int) {
-	i, j := left, mid+1
-	var tmp []int
-	for i <= mid && j <= right {
-		if nums[i] < nums[j] {
-			tmp = append(tmp, nums[i])
-			i++
-		} else {
-			tmp = append(tmp, nums[j])
-			j++
-		}
-	}
-	if i <= mid {
-		tmp = append(tmp, nums[i:mid+1]...)
-	} else {
-		tmp = append(tmp, nums[j:right+1]...)
-	}
-	copy(nums[left:right+1], tmp)
-}
