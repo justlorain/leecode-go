@@ -18,7 +18,7 @@ func climbStairs(n int) int {
 	return climbStairs(n-1) + climbStairs(n-2)
 }
 
-// 滚动数组
+// 使用滚动数组优化后的动态规划
 func climbStairs2(n int) int {
 	p, q, r := 0, 0, 1
 	for i := 0; i < n; i++ {
@@ -27,4 +27,15 @@ func climbStairs2(n int) int {
 		r = p + q
 	}
 	return r
+}
+
+// 没有优化的动态规划
+func climbStairs3(n int) int {
+	dp := make([]int, n+1)
+	dp[0] = 1
+	dp[1] = 1
+	for i := 2; i <= n; i++ {
+		dp[i] = dp[i-1] + dp[i-2]
+	}
+	return dp[n]
 }
